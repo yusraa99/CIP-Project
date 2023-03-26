@@ -1,0 +1,87 @@
+{% extends "base_comp_blog.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container mx-auto">
+    
+    
+                                
+
+        <div  class="row " >
+    
+            <div class="col-lg-12 col-md-6 ">
+                <div class="row">
+                        {% for posts in posts %}
+                                    
+                        {% if posts.company == comp %}
+            
+                            <div class="col-lg-6 col-md-6 ">
+                                <div class="pricing-single-box ">
+                                    <!-- pricing top -->
+                                    <div class="pricing-top-ber">
+                                        <div class="pricing-head">
+                                            <div class="pricing-title">
+                                                <h3>Post Information</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pricing-items">
+                                        <div class="pricing-items-title">                  
+                                                {% if posts.image.url != null %}
+                                                    <img src="{{ posts.image.url }}" alt="" style="object-fit: cover; max-width: 50%; max-height: 50%;border-radius: 12px;">
+                                                {% endif %}
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="pricing-items">
+                                        <div class="pricing-items-title">
+                                            <p style="font-size: x-large;
+                                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                            color: white; ">Post Title : </span> 
+                                            {{posts.title}}</p> 
+                                        <p style="font-size: x-large;
+                                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                            color: white; "> Post Description :</span> 
+                                            {{posts.description}} </p>
+                                            <p style="font-size: x-large;
+                                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                            color: white; ">Category :</span> 
+                                            {{posts.category}} </p> 
+                                            <p style="font-size: x-large;
+                                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                            color: white; ">Auther Name :</span> 
+                                            {{ posts.auther_name }} </p> 
+                                            <p style="font-size: x-large;
+                                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                            color: white; "> Company Name :</span> 
+                                            {{ posts.company }} </p> 
+                                            
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <br>
+                                    
+                                        <div class="pricing-boody">
+                                        
+                                            <div class="pricing-button">
+                                                <a href="{% url 'compinformation:edit_comp_post' post_url=posts.title_url %}">Edit Post Information</a>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    
+                                </div>
+                            </div>
+                        
+                        {% endif %}
+                        {% endfor %}
+                
+                </div>
+            </div>
+        </div> 
+       
+
+  </div>
+
+{% endblock %}

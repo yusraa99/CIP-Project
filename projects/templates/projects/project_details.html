@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="clearfix" style="clear: both;"></div>
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>Project Information</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span></a><a href="{% url 'projects:projects_page' %}"><span>Projects</span></a>
+                        <a>{{project}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix" style="clear: both;"></div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!--==================================================-->
+<!-- Start cryptobit about Area -->
+<!--==================================================-->
+<div class="blog-area pt-80 pb-70">
+    <div class="container">
+      <div class="row">
+          
+        <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="single_blog">
+                <div class="single_blog_thumb">
+                  <a href=""><img  src="{{project.image.url}}" style="object-fit: cover;
+                    min-height: 250px; height: 250px; min-width: 100%; max-width: 100%;
+                    border-top-left-radius: 10px; border-top-right-radius: 10px;"/></a>
+                </div>
+                <div class="single_blog_content"style="object-fit: cover; max-width: 100%; max-height: 100%;border-radius: 12px">
+                  
+                  <div class="blog_page_title">
+                    <h4><a href="">{{project.title}}</a></h4>
+                    
+                  </div>
+                  <div class="blog_page-text">
+                    <p>{{project.description}}</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            {% if project.company %}
+              
+            
+            <div class="col-lg-12">
+                <div class="blog-details-comments-box">
+                    <div class="widget-comments-title">
+                        <h2>News about {{project.company.name}}</h2>
+                    </div>
+                    {% for blogs in blogs %}
+                        
+                          {% if blogs.company_id == project.company.id %}
+                          <div class="post-comment">
+                      
+                          
+                            <div class="post-title"><h3>{{blogs.title}}</h3></div>
+                            <br>
+                            <div class="post-categories-menu">
+                              <ul>
+                                <li>
+                                  <i class="far fa-user-circle"></i><a style="">{{blogs.auther_name}}</a>
+                                </li>
+
+                                <li>
+                                  <i class="far fa-clock"></i
+                                  ><a>{{blogs.created_at|date:'d M o'}} </a>
+                                </li>
+                                <li>
+                                  <i class="fa fa-list-alt"></i><a>{{blogs.category}}</a>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <br>
+                            <div class="posts-reply">
+                                <p>{{blogs.description}}</p>
+                                <a href="{% url 'blog:blogdetail_page' blog_url=blogs.title_url %}"><span class="rights-reply">Reed More</span></a>
+                            </div>
+                           
+                          </div>
+                     
+                            {% endif %}
+                          
+                            {% endfor %}
+                   
+                </div>
+            </div>
+            {% endif %}
+              
+          </div>
+        </div>
+
+        
+        <div class="col-lg-4 col-md-6 ">
+                    
+          <div class="pricing-single-box ">
+              <!-- pricing top -->
+              <div class="pricing-top-ber">
+                  <div class="pricing-head">
+                      <div class="pricing-title">
+                          <h3>{{project.open_type}}</h3>
+                      </div>
+                  </div>
+              </div>
+              <div class="pricing-items">
+                  <div class="pricing-items-title">
+                    {% if project.company %}
+                    <h3>{{project.company}}</h3>
+                    {% elif project.user_verf %}
+                    <h3>{{project.user_verf}}</h3>
+                    {% endif %}
+                    <p></p>
+                  </div>
+                  
+              </div>
+              <div class="pricing-items-center">
+                <div class="pricing-items-title">
+                  <p style="font-size: large;
+                    color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                    color: white; ">Goal :</span> 
+                     {{project.goal}}</p> 
+                  <p style="font-size: large;
+                    color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                    color: white; ">Min investment :</span> 
+                    {{project.minimum_investment}}</p> 
+                    {% if project.company %}
+                          <p style="font-size: large;
+                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                           color: white; ">Company :</span> 
+                           {{project.company.name}}</p> 
+                    {% elif project.user_verf %}
+                      <p style="font-size: large;
+                            color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                           color: white; ">Owner :</span> 
+                           {{project.user_verf}}</p>
+                    {% endif %}
+                   
+                </div>
+              </div>
+              <br>
+              <div class="pricing-boody">
+                            
+                <div class="pricing-button">
+                  
+                  {% if project.open_type == 'Open' %}
+                    
+                  
+                    
+                    <a href="{% url 'projects:addinvest' prject_url=project.title_url %}">Invest</a>
+                    {% elif project.open_type == 'Coming Soon'%}
+                    <p style="font-size: large;
+                    color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                   color: white; "></span> 
+                   Please come back again when project will open
+                   </p>
+                    
+                    {% endif %}
+                </div>
+                
+            </div>
+          </div>
+
+          {% if  project.company%}
+          <div class="pricing-single-box ">
+            <!-- pricing top -->
+            <div class="pricing-top-ber">
+                <div class="pricing-head">
+                    <div class="pricing-title">
+                        <h3>Contact Information</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-items-title">
+                  <p></p>
+                </div>
+                
+            </div>
+            <div class="pricing-items-center">
+              <div class="pricing-items-title">
+                <p style="font-size: large;
+                  color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                  color: white; ">Company Code:</span> 
+                  {{project.company.info.compcode}}</p> 
+                <p style="font-size: large;
+                  color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                  color: white; ">Email:</span> 
+                  {{project.company.info.email}}</p>
+                        <p style="font-size: large;
+                          color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                         color: white; ">Phone:</span> 
+                         {{project.company.info.phone}}</p>
+                    
+                <p style="font-size: large;
+                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                color: white; ">Location : </span> 
+                {{project.company.info.location}}</p> 
+               
+              </div>
+            </div>
+            <br>
+           
+             
+          </div>
+
+          {% elif project.user_verf%}
+
+          <div class="pricing-single-box ">
+            <!-- pricing top -->
+            <div class="pricing-top-ber">
+                <div class="pricing-head">
+                    <div class="pricing-title">
+                        <h3>Contact Information</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-items">
+                <div class="pricing-items-title">
+                  <p></p>
+                </div>
+                
+            </div>
+            <div class="pricing-items-center">
+              <div class="pricing-items-title">
+                <p style="font-size: large;
+                  color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                  color: white; ">Owner Name : </span> 
+                  {{project.user_verf.first_name}} {{project.user_verf.last_name}}</p> 
+                <p style="font-size: large;
+                  color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                  color: white; ">Email : </span> 
+                  {{project.user_verf.email}}</p>
+                        <p style="font-size: large;
+                          color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                         color: white; ">Phone:</span> 
+                         {{project.user_verf.profile.phone_number}}</p>
+                    
+                <p style="font-size: large;
+                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                color: white; ">Location : </span> 
+                {{project.user_verf.profile.city}}</p>               
+              </div>
+            </div>
+            <br>
+           
+             
+          </div>
+
+
+          {% endif %}
+        </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+<!--==================================================-->
+<!-- End cryptobit about Area -->
+<!--==================================================-->
+
+
+<!--==================================================-->
+<!-- Start cryptobit feature Area -->
+<!--==================================================-->
+
+  <div class="feature-area style-three pt-90 ">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                  <div class="dreamit-section-title text-center upper1 pb-30 ">
+                      <h4>Becoming with Us</h4>
+                      <h3 class="section-title">Do you have project ?Or are you Company ?</h3>
+                      <p class="section-text">Becoming with us and adding your projects. </p>
+                      <div class="menu-quick-link-content">
+                          <ul>
+                              <li><a href="{% url 'accounts:verified_req' %}">Become with Us</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+      </div>
+  </div>
+<!--==================================================-->
+<!-- End cryptobit feature Area -->
+<!--==================================================-->
+
+
+
+{% endblock content %}

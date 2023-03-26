@@ -1,0 +1,118 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block body %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+<div class="contact-form-area style-two pt-50 pb-50">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="contact-form-thumb wow fadeInRight" data-wow-delay=".4s">
+                  <img src="{% static 'assets/images/resource/details.png' %}" alt=""style="
+                  max-width: 500px;
+                  max-height: 500px;
+              ">
+                  
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="row">
+
+              <div class="col-lg-12 col-md-6 col-sm-12 " >
+                <div class="pricing-single-box ">
+                    <!-- pricing top -->
+                    <div class="pricing-top-ber">
+                        <div class="pricing-head">
+                            <div class="pricing-title">
+                                <h3>Login</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pricing-items">
+                        <div class="pricing-items-title">
+                            <h3></h3>
+                            <p>Enter Your username and password </p>
+                        </div>
+                        <br>
+                        <div class="pricing-items-center">
+                            <form method="POST" >
+                                {% csrf_token %}
+                                <div class="row ">
+                                    <div class="col-lg-6  col-md-6 col-sm-12">
+                                      <div class="from-box">
+                                        {{ form.username.label_tag }}
+                                      </div>
+                                        <div class="from-box">
+                                          {{ form.username }}
+                                        </div>                                    
+                                     
+                                    </div>
+                                    <div class="col-lg-6  col-md-6 col-sm-12">
+                                      <div class="from-box">
+                                        {{ form.password.label_tag }}
+                                        </div>
+                                          <div class="from-box">
+                                            {{ form.password }}
+                                          </div>                              
+                                              
+                                    </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+                        <div class="pricing-boody">
+                        
+                            <div class="pricing-button">
+                                <a><input type="submit" value="Login" style="color: #fff; border: none; background: none" >
+                                  <input type="hidden" name="next" value="{{ next }}"></a>
+                            </div>
+                            
+                        </div>
+                    </form>
+                    <br>
+                    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                    <p><a href="{% url 'accounts:signup' %}">Don't have account?</a></p>
+                </div>
+              </div>
+
+
+            </div>
+        </div> 
+      </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+{% comment %} <form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <td>{{ form.username.label_tag }}</td>
+      <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+      <td>{{ form.password.label_tag }}</td>
+      <td>{{ form.password }}</td>
+    </tr>
+  </table>
+  <input type="submit" value="login">
+  <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Lost password?</a></p> {% endcomment %}

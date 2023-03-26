@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>Trading Bot</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span> Trading Bot</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<div class="feature-area style-four pt-100 pb-70 ">
+    <div class="container">
+        
+        <div class="row">
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 mx-auto " >
+                <div class="pricing-single-box ">
+                    <!-- pricing top -->
+                    <div class="pricing-top-ber">
+                        <div class="pricing-head">
+                            <div class="pricing-title">
+                                <h3>Trading Bot</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pricing-items">
+                        <div class="pricing-items-title">
+                            <h3></h3>
+                            <p>What's the token you want do analys?</p>
+                        </div>
+                        <br>
+                        <div class="pricing-items-center">
+                            <form method="POST" >
+                                {% csrf_token %}
+                                <div class="row ">
+                                    <div class="col-lg-6  col-md-6  mx-auto">
+                                        <div class="field">
+                                            <div class="field-body">
+                                              <div class="field grouped multiline">
+                                                    <div class="control"style="font-size: larger;font-family: 'Montserrat';padding-left: 15px;/* margin: 10px; */">
+                                                    <label class="radio">
+                                                        <input type="radio" name="trade" value="amazon" checked="">
+                                                        <span class="check"></span>
+                                                        <span class="control-label" >Amazon</span>
+                                                    </label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="control"style="font-size: larger;font-family: 'Montserrat';padding-left: 15px;/* margin: 10px; */">
+                                                    <label class="radio">
+                                                        <input type="radio" name="trade" value="apple">
+                                                        <span class="check"></span>
+                                                        <span class="control-label">Apple</span>
+                                                    </label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="control"style="font-size: larger;font-family: 'Montserrat';padding-left: 15px;/* margin: 10px; */">
+                                                        <label class="radio">
+                                                        <input type="radio" name="trade" value="google">
+                                                        <span class="check"></span>
+                                                        <span class="control-label">Google</span>
+                                                        </label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="control"style="font-size: larger;font-family: 'Montserrat';padding-left: 15px;/* margin: 10px; */">
+                                                        <label class="radio">
+                                                          <input type="radio" name="trade" value="netflix">
+                                                          <span class="check"></span>
+                                                          <span class="control-label">Netflix</span>
+                                                        </label>
+                                                      </div>
+                                                      <br>
+                                                      <div class="control"style="font-size: larger;font-family: 'Montserrat';padding-left: 15px;/* margin: 10px; */">
+                                                        <label class="radio">
+                                                          <input type="radio" name="trade" value="meta">
+                                                          <span class="check"></span>
+                                                          <span class="control-label">Meta</span>
+                                                        </label>
+                                                      </div>
+                                                      <br>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+                        <div class="pricing-boody">
+                        
+                            <div class="pricing-button">
+                                <a><input type="submit" value="Next" name="next"
+                                    style="color: #fff; border: none; background: none" /></a>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+           
+           
+           
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

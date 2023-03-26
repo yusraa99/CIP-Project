@@ -1,0 +1,115 @@
+{% extends "base_profile.html" %}
+{% load static %}
+{% block body %}
+
+<div class="contact-form-area style-two">
+  <div class="container">
+     
+        <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-6 col-sm-12 pt-left ">
+                    <div class="pricing-single-box ">
+                        <!-- pricing top -->
+                        <div class="pricing-top-ber">
+                            <div class="pricing-head">
+                                <div class="pricing-title">
+                                    <h3>User Profile</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-items">
+                            <div class="pricing-items-title">
+                                {% if profile.image.url != null %}
+                                                <img src="{{ profile.image.url }}" alt="">
+                                            {% endif %}
+                            </div>
+                            
+                        </div>
+                        <div class="pricing-items">
+                            <div class="pricing-items-title">
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                               color: white; ">First Name :</span> 
+                               {{ profile.user.first_name }} </p> 
+                               <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; "> Last Name :</span> 
+                                {{ profile.user.last_name }} </p> 
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">Username :</span> 
+                                    {{ profile.user.username }} </p> 
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">Email :</span> 
+                                    {{ profile.user.email }} </p> 
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">Phone Number :</span> 
+                                    {{ profile.phone_number }} </p>
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">Address :</span> 
+                                    {{ profile.city }} </p>
+                                <p style="font-size: x-large;
+                                color: #919da4;"><span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">Gender :</span> 
+                                    {{ profile.gender }} </p> 
+                            </div>
+                            
+                        </div>
+                        <br>
+                        
+                            <div class="pricing-boody">
+                            
+                                <div class="pricing-button">
+                                    <a href="{% url 'accounts:profile_edit' %}">Edit Information</a>
+                                </div>
+                                
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6 col-sm-12 pt-left">
+                    <div class="pricing-single-box ">
+                       
+                        
+                        {% if request.user.is_authenticated and request.user.profile.verf_user %}
+                            <div class="pricing-boody">
+                                <div class="row">
+                                    <div class="col-lg-6  col-md-6 col-sm-12 ">
+                                        <div class="contact-form-box-2 text-center">
+                                            <div class="mx-auto">
+                                                <div class="pricing-button">
+                                                    <a href="{% url 'accounts:add_user_project' %}">Add Project</a>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6  col-md-6 col-sm-12 ">
+                                        <div class="contact-form-box-2 text-center">
+                                            <div class="mx-auto">
+                                                <div class="pricing-button">
+                                                    <a href="{% url 'accounts:get_user_project' %}">View Project</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            {% endif %}
+                    
+                    
+                </div>
+                </div>
+                
+            </div>
+        </div> 
+      
+  </div>
+</div>
+
+{% endblock %}

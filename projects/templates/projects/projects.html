@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="clearfix" style="clear: both;"></div>
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>Our Projects</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span></a>
+                        <a>Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix" style="clear: both;"></div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!--==================================================-->
+<!-- Start cryptobit about Area -->
+<!--==================================================-->
+<div class="feature-area  pt-100 pb-70" >
+    <div class="container">
+    	<div class="row">
+    		<div class="dreamit-section-title text-center up pb-30">
+                <h4>Projects</h4>
+                <h1>Our Projects</h1>
+                <p class="section-text">
+                  </p>
+            </div>
+    	</div>
+        <div class="row">
+            
+            {% for  project in project %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="dreamit-blog-box wow fadeInUp" data-wow-delay=".4s">
+                        
+                        <div class="blog-box-inner"> 
+                           
+                            <div class="dreamit-blog-thumb">
+                                <span style="
+                                position: absolute;
+                                    top: 8px;
+                                    left: 24px;
+                                    z-index: 1;
+                                    color: rgb(0, 189, 170);
+                                    line-height: 17px;
+                                    font-size: 15px;
+                                    font-weight: 700;
+                                    background: rgb(255, 255, 255);
+                                    border-radius: 4px;
+                                    padding: 8px;">
+                                    {{project.open_type}} </span>
+                               <img src="{{project.image.url}}" alt=""style="object-fit: cover;
+                                min-height: 250px; height: 250px; min-width: 100%; max-width: 100%;
+                                border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                               
+                            </div>
+                           
+                                <div class="popular-blog-content" style="min-width: 100%;
+                                    border-top-left-radius: 10px; border-top-right-radius: 10px;background: rgb(106, 181, 144, 0.9);">
+
+
+                                    <div class="meta-blog "style="text-align:center ; font-size:xx-large; color:white">
+                                        
+                                        {% if project.company %}
+                                            {{project.company}}
+                                            
+                                        {% elif project.user_verf %}
+                                        {{project.user_verf}}
+                                        {% endif %}
+                                            
+                                        
+                                            
+                                    </div>
+                                        <div class="blog-title">
+                                            <h2><a href="{% url 'projects:project_details' prject_url=project.title_url %}">{{project.title}}</a></h2>
+                                        </div>
+                                    
+                                        <div class="blog-text">
+                                            {% comment %} <p>{{project.description}}</p> {% endcomment %}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6  col-md-6 col-sm-12">
+                                                <div class="blog-text">
+                                                    <p><span class="blog-text">Goal :</span>{{project.goal}}</p>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6  col-md-6 col-sm-12">
+                                                <div class="blog-text">
+                                                    <p  style="text-align:end"><span class="blog-text">Open At :</span>{{project.open_at}}</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                               
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+        
+        {% if project.has_other_pages %}
+            
+        <div class="row" style=" padding-top: 100px; ">
+            <div class="row footer-bottom">
+                
+                <ul style=" display: flex;">
+                    <div class="mx-auto">
+                        
+                        {% if  project.has_previous%}
+                            <a href="?page={{project.previous_page_number}}" style=" color: #919da4;  font-size: x-large;
+                            padding: 5px;  margin: 5px;  "><i class="fas fa-angle-double-left"></i></a>
+                        
+                        {% endif %}
+                            
+                        {% for i in project.paginator.page_range %}
+                            <a href="?page={{i}}"style=" color: #919da4;  font-size: x-large;
+                            padding: 5px;  margin: 5px;  ">{{i}}</i></a>
+                        {% endfor %}    
+
+                        {% if  project.has_next%}
+                            <a href="?page={{project.next_page_number}}" style=" color: #919da4;  font-size: x-large;
+                            padding: 5px;  margin: 5px;  "><i class="fas fa-angle-double-right"></i></a>
+                        {% endif %}
+                    </div>
+                </ul>
+                
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!--==================================================-->
+<!-- End cryptobit about Area -->
+<!--==================================================-->
+
+
+<!--==================================================-->
+<!-- Start cryptobit feature Area -->
+<!--==================================================-->
+
+  <div class="feature-area style-three pt-90 ">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                  <div class="dreamit-section-title text-center upper1 pb-30 ">
+                      <h4>Becoming with Us</h4>
+                      <h3 class="section-title">Do you have project ?Or are you Company ?</h3>
+                      <p class="section-text">Becoming with us and adding your projects. </p>
+                      <div class="menu-quick-link-content">
+                          <ul>
+                              <li><a href="{% url 'accounts:verified_req' %}">Become with Us</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+      </div>
+  </div>
+<!--==================================================-->
+<!-- End cryptobit feature Area -->
+<!--==================================================-->
+
+
+
+{% endblock content %}

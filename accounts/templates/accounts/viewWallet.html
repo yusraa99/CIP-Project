@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="clearfix" style="clear: both;"></div>
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>My Wallet</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix" style="clear: both;"></div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!--==================================================-->
+<!-- Start cryptobit about Area -->
+<!--==================================================-->
+
+<div class="contact-form-area style-two pt-100 pb-100 pricing-area">
+  <div class="container">
+     
+    <div  class="row mx-auto" >
+        <div class="col-lg-12 col-md-6">
+            <div class="row">
+                
+                <div class="col-lg-6 col-md-6 ">
+                    
+                    <div class="pricing-single-box ">
+                        <!-- pricing top -->
+                        <div class="pricing-top-ber">
+                            <div class="pricing-head">
+                                <div class="pricing-title">
+                                    <h3>{{wallet.1}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-items">
+                            <div class="pricing-items-title">
+                                <h3>My Wallet</h3>
+                                <p>Your current balance :</p>
+                            </div>
+                            
+                        </div> 
+                        <br>
+                        <div class="pricing-items-center">
+                                <span class="curencyp">{{wallet.3}}</span>
+                                <span class="tk">{{wallet.2}}</span>
+                            </div>
+                            
+                        {% if wallet.2 == 0 or allInvest == null %}
+                            <div class="pricing-boody">
+                            
+                                <div class="pricing-button">
+                                    <p class=" mx-auto" style="font-size: x-large;
+                                    color: #919da4;"><span class="table-title  mx-auto" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                    color: white; ">You don't have wallet !  </span> 
+                                    </p> 
+                                    <a href="{% url 'accounts:add_wallet' %}">Create Your Own Wallet</a>
+                                </div>
+                                
+                            </div>
+                        {% elif  wallet.2 == 0 and allInvest != null%}
+                            <div class="pricing-boody">
+                                
+                                    <div class="pricing-button">
+                                        <p class=" mx-auto" style="font-size: x-large;
+                                        color: #919da4;"><span class="table-title  mx-auto" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                        color: white; ">Update your balance !  </span> 
+                                        </p> 
+                                        <a href="{% url 'accounts:updatewallet' %}">update your balance</a>
+                                    </div>
+                                
+                                </div>
+                        {% endif %}
+
+                        
+
+
+                    </div>
+                </div>
+                
+
+                <div class="col-lg-6 col-md-6 ">
+                    
+                    <div class="pricing-single-box ">
+                        <!-- pricing top -->
+                        <div class="pricing-top-ber">
+                            <div class="pricing-head">
+                                <div class="pricing-title">
+                                    <h3>My Invest Projects</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-items">
+                            <div class="pricing-items-title">
+                                <p>All your invests of projects</p>
+                            </div>
+                            
+                        </div>
+                        <div class="pricing-items-center">
+                            
+                            <div class="pricing-items-title">
+                                {% for allInvest in allInvest %}
+                                <p style="font-size: large;
+                                    color: #919da4;">
+                                    <span class="table-title" style="font-family: 'Montserrat'; font-size: large;     background: none;
+                                    color: white; ">Money:</span> 
+                                    {{allInvest.4}} {{wallet.3}}
+                                    
+                                    <span class="table-title" style="font-family: 'Montserrat'; font-size: large;     background: none;
+                                    color: white; ">Project:</span> 
+                                    {% for project in project %}
+                                    
+                                    {% if project.id == allInvest.5%}
+                                        {{project.title}}
+                                    {% endif %}
+                                        
+                                    {% endfor %} 
+                                    <br>
+                                    <span class="table-title" style="font-family: 'Montserrat'; font-size: large;     background: none;
+                                    color: white; ">Owner:</span> 
+                                    {% for project in project %}
+                                    
+                                    {% if project.company_id == allInvest.2 %}
+                                        {{project.company.name}}
+                                    {% endif %}
+                                        
+                                    {% endfor %} 
+                                </p>
+                                
+                               
+                               
+                                {% endfor %}
+                            </div>
+                               
+                            </div>
+                        <br>
+                        
+                    </div>
+                    <div class="pricing-single-box ">
+                        <!-- pricing top -->
+                        <div class="pricing-top-ber">
+                            <div class="pricing-head">
+                                <div class="pricing-title">
+                                    <h3>Sugession</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-items">
+                            <div class="pricing-items-title">
+                                <p>We Suggest Portifolio For You</p>
+                            </div>
+                            
+                        </div>
+                        <div class="pricing-items-center">
+                            
+                            <div class="pricing-items-title">
+                                <p style="font-size: x-large;
+                                    color: #919da4;">
+                                    <span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                    color: white; ">AAPL:</span> 
+                                    20%
+                                    
+                                    
+                                </p>
+                                <p style="font-size: x-large;
+                                    color: #919da4;">
+                                    <span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                    color: white; ">MSFT:</span> 
+                                    40%
+                                    
+                                    
+                                </p>
+                                <p style="font-size: x-large;
+                                color: #919da4;">
+                                <span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">SPY:</span> 
+                                40%
+                                <p style="font-size: x-large;
+                                color: #919da4;">
+                                <span class="table-title" style="font-family: 'Montserrat'; font-size: x-large;     background: none;
+                                color: white; ">GLD:</span> 
+                                20%
+                            </p>
+                               
+                            </div>
+                               
+                            </div>
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>Meet Our Team</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span> Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!-- ===============//table section start here \\================ -->
+<div class="team-area style-three pt-100 pb-55">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="team-single-box wow fadeInDown" data-wow-delay=".3">
+                    <div class="team-box-inner">
+                        <div class="team-thumb">
+                            <img src="{% static 'assets/images/resource/rama.png' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <div class="team-title">
+                                <h3>Rama Shaikhany</h3>
+                            </div>
+                            <div class="team-text">
+                                <p>Artificial Intelligence</p>
+                            </div>
+                            <div class="team-social-menu">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="team-single-box upper1 wow fadeInDown" data-wow-delay=".4">
+                    <div class="team-box-inner">
+                        <div class="team-thumb">
+                            <img src="{% static 'assets/images/resource/yusra.png' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <div class="team-title">
+                                <h3>Yusra AlMousa</h3>
+                            </div>
+                            <div class="team-text">
+                                <p>Software Engineering</p>
+                            </div>
+                            <div class="team-social-menu">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="team-single-box upper2 wow fadeInDown" data-wow-delay=".5">
+                    <div class="team-box-inner">
+                        <div class="team-thumb">
+                            <img src="{% static 'assets/images/resource/yara.png' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <div class="team-title">
+                                <h3>Yara Ahmad </h3>
+                            </div>
+                            <div class="team-text">
+                                <p>Software Engineering</p>
+                            </div>
+                            <div class="team-social-menu">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="team-single-box wow fadeInDown" data-wow-delay=".3">
+                    <div class="team-box-inner">
+                        <div class="team-thumb">
+                            <img src="{% static 'assets/images/resource/bathawy2.png' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <div class="team-title">
+                                <h3>Abdulkhaleq Bathawy</h3>
+                            </div>
+                            <div class="team-text">
+                                <p>Artificial Intelligence</p>
+                            </div>
+                            <div class="team-social-menu">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- ===============//table section end here \\================= -->
+
+
+{% endblock content %}

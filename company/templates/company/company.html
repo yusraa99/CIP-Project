@@ -1,0 +1,573 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="clearfix" style="clear: both"></div>
+<div class="breatcome-area d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breatcome-content text-center">
+          <div class="breatcome-title">
+            <h1>Companies</h1>
+          </div>
+          <div class="breatcome-text">
+            <a href="{% url 'home:home_page' %}"><span>Home</span></a>
+            <a>Companies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix" style="clear: both"></div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!--==================================================-->
+<!-- Start cryptobit about Area -->
+<!--==================================================-->
+<div class="feature-area pt-90 pb-90" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div
+          class="dreamit-section-title upper1 pb-5 wow fadeInLeft"
+          data-wow-delay=".5s"
+        >
+          <h2>Companies</h2>
+
+          <div class="about-check-text">
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        
+        
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>A</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for  company in companies%}
+              {% if company.info.compcode.0 == 'A'%}
+              <li>
+                
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        {% if company.info.compcode.0 == 'B'%}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>B</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'B'%}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>C</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'C' %}
+
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        {% if company.info.compcode.0 == 'D' %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>D</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'D' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'E' %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>E</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'E' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'F' %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>F</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'F' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>G</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'G' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% if company.info.compcode.0 == 'H' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>H</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'H' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'I' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>I</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'I' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'J' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>J</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'J' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'K' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>K</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'K' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'L' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>L</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'L' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>M</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'M' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <h3>N</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'N' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% if company.info.compcode.0 == 'O' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>O</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'O' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'P' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>P</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'P' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'Q' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>Q</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'Q' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'R' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>R</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'R' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'S' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>S</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'S' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'T' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>T</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'T' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'U' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>U</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'U' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'V' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>V</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+            {% for company in companies %} 
+              {% if company.info.compcode.0 == 'V' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'W' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>W</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'W' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'X' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>X</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'X' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'Y' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>Y</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'Y' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+        {% if company.info.compcode.0 == 'Z' %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h3>Z</h3>
+          <div class="menu-quick-link-content">
+            <ul>
+              {% for company in companies %} 
+              {% if company.info.compcode.0 == 'Z' %}
+              <li>
+                <a
+                  href="{% url 'company:company_details' company.info.compcode%}"
+                  >{{company.info.compcode}}</a
+                >
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        {% endif %} 
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--==================================================-->
+<!-- End cryptobit about Area -->
+<!--==================================================-->
+
+<!--==================================================-->
+<!-- Start cryptobit feature Area -->
+<!--==================================================-->
+
+<div class="feature-area style-three pt-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <div class="dreamit-section-title text-center upper1 pb-30">
+          <h4>Becoming with Us</h4>
+          <h3 class="section-title">
+            Do you have project ?Or are you Company ?
+          </h3>
+          <p class="section-text">Becoming with us and adding your projects.</p>
+          <div class="menu-quick-link-content">
+            <ul>
+              <li>
+                <a href="{% url 'accounts:verified_req' %}">Become with Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--==================================================-->
+<!-- End cryptobit feature Area -->
+<!--==================================================-->
+
+{% endblock content %}

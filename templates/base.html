@@ -1,0 +1,291 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="">
+    <title>Crowd Investment Platform</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="{% static 'assets/images/fav-icon/icon3.png' %}">
+	<!-- bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css" media="all" />
+	<!-- carousel CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" type="text/css" media="all" />
+	<!-- theme default CSS -->	
+	<link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" type="text/css" media="all" />	
+	<!-- animate CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" type="text/css" media="all" />	
+	<!-- animated-text CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/animated-text.css' %}" type="text/css" media="all" />	
+	<!-- font-awesome CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}" type="text/css" media="all" />	
+	<!-- font-flaticon CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" type="text/css" media="all" />	
+	<!-- theme-default CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/theme-default.css' %}" type="text/css" media="all" />	
+	<!-- meanmenu CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}" type="text/css" media="all" />
+	<!-- Main Style CSS -->
+	<link rel="stylesheet"  href="{% static 'style.css' %}" type="text/css" media="all" />
+	<!-- venobox CSS -->
+	<link rel="stylesheet" href="{% static 'venobox/venobox.css' %}" type="text/css" media="all" />
+	<!-- responsive CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" type="text/css" media="all" />
+</head>
+<body>
+    <!-- loder -->
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+      <div class="loder-section left-section"></div>
+      <div class="loder-section right-section"></div>
+    </div>
+<!--==================================================-->
+<!-- Start cryptobit Main Menu Area -->
+<!--==================================================-->
+<div id="sticky-header" class="cryptobit_nav_manu upper">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-3">
+				<div class="logo">
+					<a class="logo_img" href="{% url 'home:home_page' %}" title="CIP">
+						<img src="{% static 'assets/images/logo8.png' %}" alt="" />
+					</a>
+					
+				</div><a class="main_sticky" href="{% url 'home:home_page' %}" title="CIP">
+                    <img src="{% static 'assets/images/logo8.png' %}" alt="astute" />
+                </a>
+			</div>
+            
+			<div class="col-lg-9">
+				<nav class="cryptobit_menu">
+					<ul class="nav_scroll">
+                        <li><a href="{% url 'home:home_page' %}">Home</a>
+                        </li>
+                        <li><a href="{% url 'company:company_page' %}">Companies</a>
+                        </li>
+                        <li><a href="{% url 'projects:projects_page' %}">Our Projects</a>
+                        </li>
+                        <li><a href="{% url 'service:serv_page' %}">Services <span>+</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'service:serv_page' %}">Our Services</a></li> 
+                                <li><a href="{% url 'markettrend:markettrend_page' %}">Maket Trend</a></li>
+                                </ul>
+                        </li>
+                        <li><a href="{% url 'howinvest:howinvest_page' %}">Invest <span>+</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'howinvest:howinvest_page' %}">How to Invest</a></li> 
+                                <li><a href="{% url 'learn:learn_page' %}">Develpment Process</a></li>
+                                <li><a href="{% url 'advices:advices_page' %}">Advices</a></li>
+                            </ul>
+                        <li><a href="{% url 'about:about_page' %}">About Us <span>+</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'about:about_page' %}">About CIP</a></li> 
+                                <li><a href="{% url 'blog:blog_page' %}">Blog</a></li>
+                                <li><a href="{% url 'team:team_page' %}">Team</a></li>
+                                <li><a href="{% url 'faq:faq_page' %}">FAQ</a></li>
+                                <li><a href="{% url 'contact:contact_page' %}">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    
+                        {% comment %} request.user.is_authenticated {% endcomment %}
+                        {% if  request.user.is_authenticated and request.user.profile.is_user or request.user.profile.verf_user%}
+                        
+                            {% comment %} <ul class="nav_scroll" > {% endcomment %}
+                                <li><a href="{% url 'accounts:profile' %}"><i class="far fa-user"></i> {{request.user.username}} <span>+</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'accounts:profile' %}"> Profile </a></li> 
+                                        <li><a href="{% url 'accounts:view_wallet' %}"> My Wallet </a></li> 
+                                        {% if  request.user.is_authenticated and request.user.profile.verf_user %}
+                                        <li><a href="{% url 'accounts:add_user_project' %}"> Add Project </a></li>
+                                        <li><a href="{% url 'accounts:get_user_project' %}"> My Projects </a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'logout' %}"> Logout</a></li>
+                                    </ul>
+                                </li>
+                            {% comment %} </ul> {% endcomment %}
+                        {% elif request.user.is_authenticated and request.user.profile.is_company%}
+                        {% comment %} <ul class="nav_scroll" > {% endcomment %}
+                            <li><a href="{% url 'accounts:profile' %}"><i class="far fa-user"></i> {{request.user.username}} <span>+</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'accounts:profile' %}"> Profile </a></li> 
+                                    <li><a href="{% url 'compinformation:compInfo' %}"> My Company </a></li>
+                                    <li><a href="{% url 'compinformation:compBlog' %}"> My Blog </a></li>
+                                    <li><a href="{% url 'compinformation:comp_project' %}"> My Projects </a></li>    
+                                    <li><a href="{% url 'logout' %}"> Logout</a></li>
+                                </ul>
+                            </li>
+                        {% comment %} </ul> {% endcomment %}
+                        {% else %}
+                            <div class="header-button">
+                                <a href="{% url 'accounts:signup' %}"><i class="far fa-user"></i> Sign Up</a>
+                            </div>
+                        {% endif %}
+
+                        
+                        
+                    </ul>
+                        
+					
+				</nav>						
+			</div>
+            
+		</div>
+	</div>
+</div>
+
+
+{% block content %}
+    
+
+
+{% endblock content %}
+    
+
+<!--==================================================-->
+<!-- Start Cryptobit Footer Middle Area -->
+<!--==================================================-->
+<div class="table-section pt-80 pb-3"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="widgets-company-info  pt-3 wow fadeInLeft" data-wow-delay=".4s">
+					<div class="cryptobit-logo">
+						<a class="logo_img" href="{% url 'home:home_page' %}" title="cryptobit">
+							<img src="{% static 'assets/images/logo8.png' %}" alt="" />
+						</a>
+					</div>
+					<div class="company-info-desc">
+                        <p>CIP used to allow users to invest in our 
+                            projects easly </p>
+                    </div>
+					
+                </div>					
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+                        <div class="widget-nav-menu upper wow fadeInLeft" data-wow-delay=".6s">
+                            <h4 class="widget-title">Useful Link</h4>
+                            <div class="menu-quick-link-content">
+                                <ul class="menu">
+                                    <li><a href="{% url 'company:company_page' %}">Companies</a></li>
+                                    <li><a href="{% url 'service:serv_page' %}">Our Services</a></li>
+                                    <li><a href="{% url 'howinvest:howinvest_page' %}">How to Invest</a></li>
+                                    <li><a href="{% url 'faq:faq_page' %}">FAQ</a></li>
+                                    <li><a href="{% url 'about:about_page' %}">About CIP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="widget-nav-menu upper1 wow fadeInLeft" data-wow-delay=".7s">
+                            <h4 class="widget-title">Contact Us</h4>
+                            <div class="menu-quick-link">
+                                <p>Read our common <a href="{% url 'faq:faq_page' %}">questions</a> or contact us here if you want to know more.</p>
+                            </div>
+                            <div class="contact-form-box-2 text-center">
+                                <form>
+                                    <div class="from-box1">
+                                        <input type="text" placeholder="Contact Us">
+                                        <button><a href="{% url 'contact:contact_page' %}"><i class="fa fa-paper-plane"></i></a></button>  
+                                    </div>
+                                </form>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>  
+        </div>
+		<div class="row footer-bottom mt-65">
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="footer-bottom-content">
+					<div class="footer-bottom-content-copy">
+						<p>© CIP all Rights Reserved. By: <span>IT Group</span></p>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="footer-bottom-content">
+                    <div class="footer-bottom-menu">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="footer-bottom-content">
+                    <div class="footer-bottom-menu">
+                        <div class="menu-quick-link-content">
+                            <ul class="menu">
+                                <li><a href="{% url 'privacypolicy:privacypolicy_page' %}">Privacy Policy</a></li>
+                                <li><a href="{% url 'termscondition:termscondition_page' %}">Terms & Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>		
+<!--==================================================-->
+<!-- End Cryptobit Footer Middle Area -->
+<!--==================================================-->
+
+<!--==================================================-->
+<!-- Start scroll Area -->
+<!--==================================================-->
+<div class="scroll-area">
+    <div class="top-wrap">
+        <div class="go-top-btn-wraper">
+            <div class="go-top go-top-button">
+                <i class="fas fa-arrow-up"></i>
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==================================================-->
+<!-- Start scroll Area -->
+<!--==================================================-->
+	
+	<!-- jquery js -->	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- bootstrap js -->	
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/main.js' %}"></script>
+	<!-- carousel js -->
+	<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+	<!-- waypoints js -->
+	<script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+	<!-- wow js -->
+	<script src="{% static 'assets/js/wow.js' %}"></script>
+	<!-- imagesloaded js -->
+	<script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+	<!-- venobox js -->
+	<script src="{% static 'venobox/venobox.js' %}"></script>
+	<!-- ajax mail js -->
+	<script src="{% static 'assets/js/ajax-mail.js' %}"></script>
+	<!--  animated-text js -->	
+	<script src="{% static 'assets/js/animated-text.js' %}"></script>
+	<!-- venobox min js -->
+	<script src="{% static 'venobox/venobox.min.js' %}"></script>
+	<!-- jquery meanmenu js -->	
+	<script src="{% static 'assets/js/jquery.meanmenu.js' %}"></script>
+	<!-- jquery scrollup js -->
+	<script src="{% static 'assets/js/jquery.scrollUp.js' %}"></script>
+	<!-- theme js -->	
+	<script src="{% static 'assets/js/theme.js' %}"></script>
+	<!-- range js -->	
+	<script src="{% static 'assets/js/range.js' %}"></script>
+	<!-- particls.chart1 js -->
+    <script src="{% static 'assets/js/particls.chart1.js' %}"></script>
+    <!-- barfiller js -->
+    <script src="{% static 'assets/js/jquery.barfiller.js' %}"></script>
+    <!-- drawchart js -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+</body>
+</html>

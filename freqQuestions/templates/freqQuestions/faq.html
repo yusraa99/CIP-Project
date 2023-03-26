@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ===============//breatcome area start here \\================= -->
+<div class="breatcome-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome-content text-center">
+                    <div class="breatcome-title">
+                        <h1>Frequently Asked Questions</h1>
+                    </div>
+                    <div class="breatcome-text">
+                        <a href="{% url 'home:home_page' %}"><span>Home</span> FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============//breatcome section end here \\================= -->
+
+<!-- ===============//faq section start here \\================= -->
+<div class="faq-area blog-area pt-100 pb-200">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="dreamit-section-title up text-center pb-50">
+                    <h4>FAQ</h4>
+                    <h1>Question & <span>Answer</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="tab-content text-center wow fadeInDown" data-wow-delay=".3">
+                    <ul class="tabs">
+                        <li class="active" rel="tab1"> <i class="fas fa-play"></i>General Question</li>  
+                        <li rel="tab2"><i class="fas fa-play"></i> Investing with CIP </li>
+                        <li rel="tab3"><i class="fas fa-play"></i> Investments & Due Diligence</li>
+                        <li rel="tab4"><i class="fas fa-play"></i> Founders Seeking Capital</li>
+                        <li rel="tab5"><i class="fas fa-play"></i> Using the Website</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="tab_container wow fadeInDown" data-wow-delay=".4">
+                    <h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>
+                    <div id="tab1" class="tab_content">
+                         <ul class="accordion">
+                        <li>
+                            <a>Why invest in startups?</a>
+                            <p>Technology startups are changing nearly every aspect of life, creating explosive social and financial value. Most people have to wait for a company to go public before they can invest and be a part of a company’s growth. By the time a startup goes public or gets acquired, much of the growth has been accrued by early private investors and investment banks. CIP global equity funding platform gives accredited investors exclusive access to participate in promising private startup funding rounds alongside top-tier VCs at the same terms, starting at $200.</p>
+                        </li>
+                        <li>
+                            <a>How do I get started?</a>
+                            <p>It is simple and free to sign up on the CIP website and begin accessing our deal flow. Once your investment account is set up, you’ll have full access to information about the startups and funds available to accredited investors.</p>
+                        </li>
+                        <li>
+                            <a>Can I speak with someone from Investor Relations?</a>
+                            <p>Yes, please contact us to schedule a call with an Investor Relations representative at a time convenient for you.</p>
+                        </li>
+                        <li>
+                            <a>How can I create a crypto-wallet?</a>
+                            <p>Create your own account that takes a few minutes from tour time then go to MY Wallet option and add your wallet and your balance.</p>
+                        </li>
+                    </ul>
+                    </div>
+                    
+                    <h3 class="tab_drawer_heading" rel="tab2"> Tab 2  </h3>
+                    <div id="tab2" class="tab_content">
+                         <ul class="accordion">
+                        <li>
+                            <a>How does CIP's investment process work?</a>
+                            <p>Through our extensive and growing network, CIP pursues promising startups to invest in selective, high-demand investment rounds, often along top tier VCs. CIP's team of investment professionals reviews between 150-200 startup companies every month, typically meeting 20-30 management teams face-to-face. CIP then conducts in-depth due diligence and negotiation in order to select, on average, 2-3 investment opportunities per month. CIP invests its own capital in every portfolio company alongside its investor community and provides the same terms as institutional co-investors in the round.</p>
+                        </li>
+                        <li>
+                            <a>Can residents of any country invest with CIP?</a>
+                            <p>Yes, you can invest of any country with CIP.</p>
+                        </li>
+                        <li>
+                            <a>Which currencies do you accept?</a>
+                            <p>The currency we accept is Dollar only.</p>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    <!-- #tab2 -->
+                    <h3 class="tab_drawer_heading" rel="tab3">  Tab 3 </h3>
+                    <div id="tab3" class="tab_content">
+
+                         <ul class="accordion">
+                        <li>
+                            <a>What sectors does CIP invest in?</a>
+                            <p>CIP is sector, stage, and geography agnostic. We invest in a range of sectors ranging from Agriculture, Consumer, Cybersecurity, Energy, Enterprise, FinTech, Healthcare, Mobility, and more. </p>
+                        </li>
+                        <li>
+                            <a>Should I do my own due diligence on companies?</a>
+                            <p>CIP provides extensive materials to help investors make their own investment decisions. This includes webinars with a company’s founder/CEO, in-depth analysis by our investment team, company pitch deck, global events, and more. </p>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    <!-- #tab3 -->
+                    <h3 class="tab_drawer_heading" rel="tab4"> Tab 4</h3>
+                    <div id="tab4" class="tab_content">
+
+                        <ul class="accordion">
+                        <li>
+                            <a>I am an entrepreneur looking for investment, what are the next steps?</a>
+                            <p>Our deal flow team sees around 150 new startups on average per month. To submit your company’s information for review, join to us as company.</p>
+                        </li>
+                        <li>
+                            <a>How much money can a company raise through CIP?</a>
+                            <p>A typical round of investment through CIP’s platform is anywhere between $2M to $20M. We often participate in larger rounds of investment alongside top tier venture capital funds and other large institutional investors.</p>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    <!-- #tab3 -->
+                    <h3 class="tab_drawer_heading" rel="tab5"> Tab 5</h3>
+                    <div id="tab5" class="tab_content">
+                        <ul class="accordion">
+                        <li>
+                            <a>How do I reset my password?</a>
+                            <p>Click Sign Up at the top right then click you have already an account and click Reset my password.</p>
+                        </li>
+                        <li>
+                            <a>Where can I see my investment documents?</a>
+                            <p>When logged in, in the top right, click My Profile. You will see a tab called My Holdings with a list of your investments, the investment amounts, fair value, reports, and more. </p>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============//faq section end here \\=================== -->
+
+
+{% endblock content %}
